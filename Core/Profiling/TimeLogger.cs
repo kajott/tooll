@@ -258,7 +258,7 @@ namespace Framefield.Core.Profiling
                         }
                     }
 
-                    if (fps < (float)FPSHistogram.Count)
+                    if ((fps < (float)FPSHistogram.Count) && (fps >= 0.0f))
                         FPSHistogram[(int)fps]++;
                     else
                         FPSOverflows++;
