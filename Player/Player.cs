@@ -276,6 +276,12 @@ namespace Framefield.Player
 
             var context = GetNewContext(t);
 
+            if (op.Outputs[0].Type != FunctionType.Scene)
+            {
+                Logger.Error("FATAL: main output of operator '{0}' is not of type 'Scene'", op.Definition.Name);
+                Logger.Error("quitting the application now (as you wouldn't see anything anyway), please disregard all following messages!");
+                _form.Close();
+            }
             op.Outputs[0].Eval(context);
         }
 
